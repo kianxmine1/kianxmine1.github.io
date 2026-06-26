@@ -3,46 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>کیان | گیمر دولوپر</title>
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <title>کیان | توسعه‌دهنده نیشابوری</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" />
     <style>
         /* ===== CSS Variables ===== */
         :root {
+            --bg-primary: #f5f0fe;
+            --bg-card: rgba(255, 255, 255, 0.88);
+            --bg-card-hover: rgba(250, 245, 255, 0.95);
+            --text-primary: #1e1b2e;
+            --text-secondary: #4a4270;
+            --text-muted: #8a82aa;
+            --border-color: rgba(108, 92, 231, 0.15);
+            --glow-color: rgba(108, 92, 231, 0.15);
+            --neon-purple: #6c5ce7;
+            --neon-blue: #4f8cf7;
+            --neon-pink: #e84393;
+            --shadow-color: rgba(108, 92, 231, 0.12);
+            --avatar-bg: linear-gradient(145deg, #6c5ce7, #a855f7);
+            --badge-bg: rgba(108, 92, 231, 0.06);
+            --project-bg: rgba(108, 92, 231, 0.04);
+        }
+
+        /* تم دارک (اختیاری) */
+        [data-theme="dark"] {
             --bg-primary: #0a0a12;
-            --bg-card: rgba(16, 16, 30, 0.85);
-            --bg-card-hover: rgba(30, 30, 55, 0.9);
+            --bg-card: rgba(16, 16, 30, 0.88);
+            --bg-card-hover: rgba(30, 30, 55, 0.95);
             --text-primary: #e8e8f0;
             --text-secondary: #a0a0b8;
             --text-muted: #5a5a7a;
             --border-color: rgba(255, 255, 255, 0.06);
-            --glow-color: rgba(168, 85, 247, 0.3);
-            --neon-purple: #a855f7;
-            --neon-blue: #3b82f6;
-            --neon-pink: #ec4899;
+            --glow-color: rgba(168, 85, 247, 0.2);
             --shadow-color: rgba(168, 85, 247, 0.15);
-            --avatar-bg: linear-gradient(145deg, #6c5ce7, #a855f7);
-            --badge-bg: rgba(255, 255, 255, 0.05);
+            --badge-bg: rgba(255, 255, 255, 0.04);
+            --project-bg: rgba(255, 255, 255, 0.03);
         }
 
-        /* تم روشن */
-        [data-theme="light"] {
-            --bg-primary: #f0ecf9;
-            --bg-card: rgba(255, 255, 255, 0.85);
-            --bg-card-hover: rgba(245, 240, 255, 0.95);
-            --text-primary: #1a1a2e;
-            --text-secondary: #3d3d5c;
-            --text-muted: #7a7a9a;
-            --border-color: rgba(0, 0, 0, 0.08);
-            --glow-color: rgba(168, 85, 247, 0.15);
-            --shadow-color: rgba(108, 92, 231, 0.2);
-            --badge-bg: rgba(108, 92, 231, 0.08);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Vazirmatn', sans-serif;
@@ -54,11 +52,9 @@
             align-items: center;
             padding: 20px;
             transition: background 0.5s ease, color 0.4s ease;
-            background-image: radial-gradient(circle at 10% 20%, rgba(168, 85, 247, 0.05) 0%, transparent 50%),
-                              radial-gradient(circle at 90% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
         }
 
-        /* ===== دکمه تعویض تم ===== */
+        /* دکمه تعویض تم */
         .theme-toggle {
             position: fixed;
             top: 20px;
@@ -73,55 +69,32 @@
             font-size: 24px;
             cursor: pointer;
             backdrop-filter: blur(12px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-
         .theme-toggle:hover {
             transform: scale(1.08);
             box-shadow: 0 0 30px var(--glow-color);
             border-color: var(--neon-purple);
         }
 
-        /* ===== کارت اصلی ===== */
+        /* کارت اصلی */
         .card {
             max-width: 950px;
             width: 100%;
             background: var(--bg-card);
             backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
             border-radius: 40px;
             padding: 40px 35px;
             border: 1px solid var(--border-color);
-            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--border-color) inset;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.06), 0 0 0 1px var(--border-color) inset;
             transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
         }
 
-        /* افکت نورانی پس‌زمینه کارت */
-        .card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 40%, rgba(168, 85, 247, 0.03) 0%, transparent 60%),
-                        radial-gradient(circle at 70% 60%, rgba(59, 130, 246, 0.03) 0%, transparent 60%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .card > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* ===== هدر ===== */
+        /* هدر */
         .header {
             display: flex;
             align-items: center;
@@ -134,9 +107,9 @@
 
         .avatar {
             background: var(--avatar-bg);
-            width: 75px;
-            height: 75px;
-            border-radius: 30px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -144,15 +117,18 @@
             font-weight: 900;
             color: #fff;
             box-shadow: 0 12px 30px var(--shadow-color);
-            border: 2px solid rgba(255, 255, 255, 0.08);
+            border: 3px solid rgba(255,255,255,0.3);
             flex-shrink: 0;
+            overflow: hidden;
             transition: 0.3s ease;
-            animation: glowPulse 3s infinite alternate;
         }
-
-        @keyframes glowPulse {
-            0% { box-shadow: 0 12px 30px var(--shadow-color); }
-            100% { box-shadow: 0 12px 50px var(--glow-color); }
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .avatar .placeholder {
+            font-size: 38px;
         }
 
         .header-text h1 {
@@ -162,9 +138,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            letter-spacing: -0.5px;
         }
-
         .header-text .subtitle {
             font-size: 14px;
             color: var(--text-secondary);
@@ -177,7 +151,6 @@
             gap: 8px;
             margin-top: 10px;
         }
-
         .badge {
             background: var(--badge-bg);
             border: 1px solid var(--border-color);
@@ -185,23 +158,17 @@
             border-radius: 40px;
             font-size: 12px;
             color: var(--text-secondary);
-            backdrop-filter: blur(4px);
             display: inline-flex;
             align-items: center;
             gap: 5px;
             transition: 0.2s ease;
         }
-
         .badge:hover {
             border-color: var(--neon-purple);
-            color: var(--text-primary);
         }
+        .badge .icon { font-size: 15px; }
 
-        .badge .icon {
-            font-size: 15px;
-        }
-
-        /* ===== بیو ===== */
+        /* بیو */
         .bio {
             background: var(--badge-bg);
             padding: 18px 22px;
@@ -213,82 +180,63 @@
             color: var(--text-secondary);
             transition: 0.3s ease;
         }
+        .bio strong { color: var(--neon-purple); }
 
-        .bio strong {
-            color: var(--neon-purple);
-        }
-
-        /* ===== بخش عکس‌ها ===== */
-        .images-section {
+        /* ===== بخش پروژه‌ها (جای عکس‌ها) ===== */
+        .projects-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
             margin-bottom: 30px;
         }
 
-        .image-box {
-            background: var(--bg-card);
+        .project-card {
+            background: var(--project-bg);
             border-radius: 24px;
-            overflow: hidden;
+            padding: 20px;
             border: 1px solid var(--border-color);
             transition: all 0.35s ease;
-            min-height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .image-box:hover {
-            border-color: var(--neon-purple);
-            transform: translateY(-4px) scale(1.01);
-            box-shadow: 0 20px 45px var(--shadow-color);
-        }
-
-        .image-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            text-decoration: none;
+            color: var(--text-primary);
             display: block;
-            transition: 0.5s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+        }
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 45px var(--shadow-color);
+            border-color: var(--neon-purple);
         }
 
-        .image-box:hover img {
-            transform: scale(1.03);
-        }
-
-        .image-placeholder {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 25px;
-            color: var(--text-muted);
-            font-size: 14px;
-            background: var(--bg-primary);
-            width: 100%;
-            height: 100%;
-            min-height: 190px;
-            text-align: center;
-        }
-
-        .image-placeholder .big-icon {
-            font-size: 44px;
+        .project-card .project-icon {
+            font-size: 40px;
             margin-bottom: 10px;
-            opacity: 0.4;
+            display: block;
+        }
+        .project-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+        }
+        .project-card p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .project-card .project-link {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 13px;
+            color: var(--neon-purple);
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+        }
+        .project-card:hover .project-link {
+            border-bottom-color: var(--neon-purple);
         }
 
-        .image-placeholder small {
-            color: var(--text-muted);
-            background: var(--badge-bg);
-            padding: 4px 14px;
-            border-radius: 20px;
-            font-size: 11px;
-            margin-top: 6px;
-        }
-
-        /* ===== شبکه‌های اجتماعی ===== */
+        /* شبکه‌های اجتماعی */
         .social-section {
             margin-top: 10px;
             background: var(--badge-bg);
@@ -297,7 +245,6 @@
             border: 1px solid var(--border-color);
             transition: 0.3s ease;
         }
-
         .social-section .social-title {
             font-size: 14px;
             font-weight: 500;
@@ -306,15 +253,12 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            letter-spacing: 0.3px;
         }
-
         .social-links {
             display: flex;
             flex-wrap: wrap;
             gap: 10px 16px;
         }
-
         .social-link {
             display: inline-flex;
             align-items: center;
@@ -328,7 +272,6 @@
             border: 1px solid var(--border-color);
             transition: all 0.25s ease;
         }
-
         .social-link:hover {
             background: var(--neon-purple);
             color: #fff;
@@ -336,20 +279,14 @@
             box-shadow: 0 10px 30px var(--glow-color);
             border-color: var(--neon-purple);
         }
-
-        .social-link .sicon {
-            font-size: 18px;
-        }
-
+        .social-link .sicon { font-size: 18px; }
         .social-hint {
             margin-top: 12px;
             font-size: 12px;
             color: var(--text-muted);
-            padding-right: 6px;
             opacity: 0.7;
         }
 
-        /* ===== فوتر ===== */
         .footer-note {
             margin-top: 28px;
             text-align: center;
@@ -357,89 +294,36 @@
             color: var(--text-muted);
             border-top: 1px solid var(--border-color);
             padding-top: 20px;
-            letter-spacing: 0.3px;
         }
+        .footer-note .heart { color: var(--neon-pink); }
 
-        .footer-note .heart {
-            color: var(--neon-pink);
-        }
-
-        /* ===== اسکرول بار گیمری ===== */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-primary);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--neon-purple);
-            border-radius: 10px;
-        }
-
-        /* ===== ریسپانسیو ===== */
+        /* ریسپانسیو */
         @media (max-width: 650px) {
-            .card {
-                padding: 24px 16px;
-                border-radius: 28px;
-            }
-            .images-section {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-            .header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 12px;
-            }
-            .avatar {
-                width: 60px;
-                height: 60px;
-                font-size: 30px;
-            }
-            .header-text h1 {
-                font-size: 24px;
-            }
-            .social-links {
-                gap: 8px 12px;
-            }
-            .social-link {
-                font-size: 12px;
-                padding: 5px 12px 5px 10px;
-            }
-            .bio {
-                font-size: 14px;
-                padding: 14px 16px;
-            }
-            .theme-toggle {
-                width: 44px;
-                height: 44px;
-                font-size: 20px;
-                top: 14px;
-                left: 14px;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .badge-group .badge {
-                font-size: 10px;
-                padding: 3px 10px;
-            }
+            .card { padding: 24px 16px; border-radius: 28px; }
+            .projects-section { grid-template-columns: 1fr; gap: 16px; }
+            .header { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .avatar { width: 65px; height: 65px; }
+            .header-text h1 { font-size: 24px; }
+            .social-links { gap: 8px 12px; }
+            .social-link { font-size: 12px; padding: 5px 12px 5px 10px; }
+            .theme-toggle { width: 44px; height: 44px; font-size: 20px; top: 14px; left: 14px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== دکمه تعویض تم ===== -->
-    <button class="theme-toggle" id="themeToggle" aria-label="تعویض تم">
-        🌙
-    </button>
+    <!-- دکمه تعویض تم -->
+    <button class="theme-toggle" id="themeToggle">☀️</button>
 
-    <!-- ===== کارت اصلی ===== -->
+    <!-- کارت اصلی -->
     <div class="card">
 
-        <!-- هدر -->
+        <!-- هدر با عکس پروفایل -->
         <div class="header">
-            <div class="avatar">کی</div>
+            <div class="avatar" id="profileAvatar">
+                <!-- عکس پروفایل رو اینجا بذار -->
+                <img src="profile.jpg" alt="پروفایل کیان" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'placeholder\'>کی</span>';">
+            </div>
             <div class="header-text">
                 <h1>کیان</h1>
                 <div class="subtitle">📍 نیشابور · ۱۴ ساله · کدنویس تمام‌وقت</div>
@@ -452,7 +336,7 @@
             </div>
         </div>
 
-        <!-- بیوگرافی -->
+        <!-- بیو -->
         <div class="bio">
             <strong>🔥 سلام!</strong> من کیانم، ۱۴ ساله از نیشابور. 
             عاشق کدنویسی و گیمینگ‌ام. 
@@ -462,24 +346,23 @@
             همیشه آماده برای یه چالش جدید! 🚀
         </div>
 
-        <!-- بخش عکس‌ها -->
-        <div class="images-section">
-            <div class="image-box">
-                <img src="img-1.png" alt="تصویر اول" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                <div class="image-placeholder" style="display: none;">
-                    <span class="big-icon">🖼️</span>
-                    <div>img-1.png</div>
-                    <small>تصویر اول</small>
-                </div>
-            </div>
-            <div class="image-box">
-                <img src="img-2.png" alt="تصویر دوم" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                <div class="image-placeholder" style="display: none;">
-                    <span class="big-icon">🎯</span>
-                    <div>img-2.png</div>
-                    <small>تصویر دوم</small>
-                </div>
-            </div>
+        <!-- ===== بخش پروژه‌ها (به جای عکس‌ها) ===== -->
+        <div class="projects-section">
+            <!-- پروژه اول -->
+            <a href="#" class="project-card" target="_blank">
+                <span class="project-icon">🎯</span>
+                <h3>نام پروژه اول</h3>
+                <p>توضیحات مختصر درباره پروژه اولت. مثلاً یه پلاگین ماینکرفت یا یه سایت خاص.</p>
+                <span class="project-link">مشاهده پروژه →</span>
+            </a>
+
+            <!-- پروژه دوم -->
+            <a href="#" class="project-card" target="_blank">
+                <span class="project-icon">🚀</span>
+                <h3>نام پروژه دوم</h3>
+                <p>توضیحات مختصر درباره پروژه دومت. مثلاً یه اسکریپت MTA یا یه اپلیکیشن وب.</p>
+                <span class="project-link">مشاهده پروژه →</span>
+            </a>
         </div>
 
         <!-- شبکه‌های اجتماعی -->
@@ -507,34 +390,20 @@
     <script>
         (function() {
             const toggleBtn = document.getElementById('themeToggle');
-            const htmlElement = document.documentElement;
+            const html = document.documentElement;
 
-            // چک کردن تم ذخیره شده در localStorage
-            let currentTheme = localStorage.getItem('theme') || 'dark';
-            htmlElement.setAttribute('data-theme', currentTheme);
-            updateButtonIcon(currentTheme);
+            // تم پیش‌فرض: لایت
+            let currentTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', currentTheme);
+            toggleBtn.textContent = (currentTheme === 'dark') ? '🌙' : '☀️';
 
-            // کلیک روی دکمه
             toggleBtn.addEventListener('click', function() {
-                const current = htmlElement.getAttribute('data-theme');
+                const current = html.getAttribute('data-theme');
                 const newTheme = (current === 'dark') ? 'light' : 'dark';
-                htmlElement.setAttribute('data-theme', newTheme);
+                html.setAttribute('data-theme', newTheme);
                 localStorage.setItem('theme', newTheme);
-                updateButtonIcon(newTheme);
+                toggleBtn.textContent = (newTheme === 'dark') ? '🌙' : '☀️';
             });
-
-            function updateButtonIcon(theme) {
-                toggleBtn.textContent = (theme === 'dark') ? '🌙' : '☀️';
-            }
-
-            // همچنین تم سیستم رو چک کن (اختیاری)
-            // اگر کاربر تم سیستم رو dark داره و قبلاً چیزی ذخیره نشده
-            if (!localStorage.getItem('theme')) {
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                const defaultTheme = prefersDark ? 'dark' : 'light';
-                htmlElement.setAttribute('data-theme', defaultTheme);
-                updateButtonIcon(defaultTheme);
-            }
         })();
     </script>
 
