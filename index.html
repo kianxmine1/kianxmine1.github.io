@@ -1,55 +1,264 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مژه چوسی | تخصصی‌ترین مرکز کسعشر</title>
+    <title>Kian | Developer</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;700&display=swap');
-        
-        body { font-family: 'Vazirmatn', sans-serif; margin: 0; background-color: #fff0f5; color: #4a4a4a; overflow-x: hidden; }
-        
-        /* انیمیشن اصلی ورود */
-        .fade-in { animation: fadeIn 1.5s ease-in; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-        header { background: linear-gradient(135deg, #ffb7c5, #ff9aa2); color: white; padding: 4rem 1rem; text-align: center; clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
-        
-        .btn { 
-            display: inline-block; background: #d63384; color: white; padding: 15px 30px; 
-            border-radius: 50px; text-decoration: none; font-weight: bold;
-            transition: all 0.3s; animation: pulse 2s infinite;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .btn:hover { transform: scale(1.1); background: #b02a6c; }
-        
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
 
-        .card { 
-            background: white; padding: 2rem; margin: 20px auto; width: 80%; max-width: 600px;
-            border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transition: 0.4s;
+        body {
+            background: #0a0a0f;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
         }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 30px rgba(0,0,0,0.1); }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .avatar {
+            font-size: 72px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .header .title {
+            color: #888;
+            font-size: 16px;
+            margin-top: 4px;
+        }
+
+        .header .bio {
+            color: #666;
+            font-size: 14px;
+            max-width: 450px;
+            margin: 12px auto 0;
+            line-height: 1.6;
+        }
+
+        .divider {
+            border: none;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.05);
+            margin: 30px 0;
+        }
+
+        /* ===== SKILLS ===== */
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 14px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 30px;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #ccc;
+            transition: 0.3s;
+        }
+
+        .skill-tag:hover {
+            border-color: #ff1744;
+            color: #fff;
+        }
+
+        /* ===== PROJECTS ===== */
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .project-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: 0.3s;
+        }
+
+        .project-item:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        .project-item .name {
+            color: #e0e0e0;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .project-item .name .icon {
+            margin-right: 8px;
+        }
+
+        .project-item .link {
+            color: #888;
+            text-decoration: none;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .project-item .link:hover {
+            color: #ff1744;
+        }
+
+        /* ===== LINKS ===== */
+        .links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .links a {
+            color: #888;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 8px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .links a:hover {
+            color: #fff;
+            border-color: #ff1744;
+            background: rgba(255, 23, 68, 0.05);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #333;
+            font-size: 12px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 600px) {
+            .header h1 { font-size: 26px; }
+            .project-item { flex-direction: column; align-items: flex-start; gap: 6px; }
+            .project-item .link { font-size: 12px; }
+            .links a { font-size: 13px; padding: 6px 14px; }
+        }
     </style>
 </head>
 <body>
 
-<header class="fade-in">
-    <h1>مژه چوسی 🌸</h1>
-    <p>مژه چوسی سیکتیر تقدیم میکند</p>
-</header>
+<div class="container">
 
-<div class="fade-in" style="margin-top: -50px;">
-    <div class="card">
-        <h2>خدمات ویژه</h2>
-        <p>✓ اکستنش کسشر ارایش تخاماتیک</p>
-        <p>✓ لیفت بیست شیشی</p>
+    <!-- ===== HEADER ===== -->
+    <div class="header">
+        <span class="avatar">👨‍💻</span>
+        <h1>Kian</h1>
+        <div class="title">Developer · Creator · Builder</div>
+        <p class="bio">
+            I build plugins, websites, and tools for Minecraft and beyond.
+            Passionate about clean code and creative solutions.
+        </p>
     </div>
 
-    <div class="card" style="text-align: center;">
-        <h2>رزرو وقت مشاوره</h2>
-        <a href="#" class="btn">تماس در و گوهستان📱</a>
+    <hr class="divider">
+
+    <!-- ===== SKILLS ===== -->
+    <div class="section-title">⚡ Skills</div>
+    <div class="skills">
+        <span class="skill-tag">HTML</span>
+        <span class="skill-tag">CSS</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Lua</span>
+        <span class="skill-tag">Java</span>
+        <span class="skill-tag">C++</span>
+        <span class="skill-tag">PHP</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Git</span>
     </div>
+
+    <!-- ===== PROJECTS ===== -->
+    <div class="section-title">📦 Projects</div>
+    <div class="project-list">
+
+        <div class="project-item">
+            <span class="name"><span class="icon">⚡</span>ZynexAdmin</span>
+            <a href="https://github.com/kianxmine1/ZynexAdmin" target="_blank" class="link">GitHub →</a>
+        </div>
+
+        <div class="project-item">
+            <span class="name"><span class="icon">🌀</span>ZynexRTP</span>
+            <a href="https://github.com/kianxmine1/ZynexRTP" target="_blank" class="link">GitHub →</a>
+        </div>
+
+        <div class="project-item">
+            <span class="name"><span class="icon">🎆</span>ZynexParticles</span>
+            <a href="https://github.com/kianxmine1/ZynexParticle" target="_blank" class="link">GitHub →</a>
+        </div>
+
+        <div class="project-item">
+            <span class="name"><span class="icon">📢</span>ZynexBroadcast</span>
+            <a href="https://github.com/kianxmine1/ZynexBroadcast" target="_blank" class="link">GitHub →</a>
+        </div>
+
+        <div class="project-item">
+            <span class="name"><span class="icon">🏠</span>ZynexLobby</span>
+            <a href="https://github.com/kianxmine1/ZynexLobby" target="_blank" class="link">GitHub →</a>
+        </div>
+
+    </div>
+
+    <!-- ===== LINKS ===== -->
+    <div class="links">
+        <a href="https://github.com/kianxmine1" target="_blank">🐙 GitHub</a>
+        <a href="https://modrinth.com/user/kianxmine1" target="_blank">📦 Modrinth</a>
+        <a href="#" target="_blank">💬 Discord</a>
+        <a href="#" target="_blank">📧 Email</a>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <div class="footer">
+        © 2026 Kian · Built with ❤️
+    </div>
+
 </div>
 
 </body>
