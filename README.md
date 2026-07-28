@@ -2,7 +2,6 @@
 
 <div align="center">
 
-![Banner](https://img.shields.io/badge/Coder-8B00FF?style=for-the-badge)
 
 </div>
 
